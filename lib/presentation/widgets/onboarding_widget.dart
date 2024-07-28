@@ -24,7 +24,7 @@ class OnboardingWidget extends StatelessWidget {
           width: 250,
           height: 250,
         ),
-        Spacer(),
+        const Spacer(),
         Text(
           title,
           style: const TextStyle(
@@ -38,7 +38,9 @@ class OnboardingWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 60),
           child: CustomButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "/toLoginRoute");
+            },
             buttonText: 'Get Started',
           ),
         )

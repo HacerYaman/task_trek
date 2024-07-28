@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_trek/constants/colors.dart';
+import 'package:task_trek/constants/dimens.dart';
 
 class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -13,17 +14,21 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-          backgroundColor: TasktrekColors.primaryColor,
-          minimumSize: const Size(300, 55),
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-              side: const BorderSide(color: TasktrekColors.secondaryColor))),
-      child: Text(
-        buttonText,
-        style: const TextStyle(color: Colors.white, fontSize: 18),
+    return Container(
+      height: TaskTrekDimens.buttonHeight,
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+            backgroundColor: TasktrekColors.primaryColor,
+            //minimumSize: const Size(300, 55),
+            shape: const RoundedRectangleBorder(
+                borderRadius: TaskTrekDimens.borderRadius,
+                side: BorderSide(color: TasktrekColors.secondaryColor))),
+        child: Text(
+          buttonText,
+          style: const TextStyle(color: Colors.white, fontSize: TaskTrekDimens.fontSizeMedium),
+        ),
       ),
     );
   }
